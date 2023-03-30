@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="pushingtest_4980",
-    version="0.1.1",
+    version="0.1.2",
     author="Michael Chupilnick",
     author_email="your_email@example.com",
     description="CI/CD test package",
