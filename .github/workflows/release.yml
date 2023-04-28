@@ -27,15 +27,13 @@ jobs:
     - name: Run tests
       run: pytest
   
-    - name: Build distribution packages
-      run: |
-        # mkdir -p ~/.ssh
-        # echo "$PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
-        # chmod 600 ~/.ssh/id_rsa
-        # ssh ubuntu@52.208.43.242
-        # mkdir all_work
-        mkdir -p ~/.ssh
-        echo ${ secrets.PRIVATE_KEY } | tr -d '\r' > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan 52.208.43.242 >> ~/.ssh/known_hosts
-        ssh ubuntu@52.208.43.242 "mkdir all_work; exit"
+    - name: Deploy to server
+      uses: easingthemes/ssh-deploy@v2.1.7
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+        ARGS: "-rltgoDzvO --delete"
+      with:
+        server: "52.208.43.242"
+        username: "ubuntu"
+      script: |
+         mkdir done
