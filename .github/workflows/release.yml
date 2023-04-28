@@ -29,8 +29,13 @@ jobs:
   
     - name: Build distribution packages
       run: |
+        # mkdir -p ~/.ssh
+        # echo "$PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+        # chmod 600 ~/.ssh/id_rsa
+        # ssh ubuntu@52.208.43.242
+        # mkdir all_work
         mkdir -p ~/.ssh
-        echo ${ secrets.PRIVATE_KEY } | tr -d '\r' > ~/.ssh/id_rsa
+        echo "$PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
-        ssh ubuntu@52.208.43.242
-        mkdir all_work
+        ssh-keyscan 52.208.43.242 >> ~/.ssh/known_hosts
+        ssh ubuntu@52.208.43.242 "mkdir all_work; exit"
