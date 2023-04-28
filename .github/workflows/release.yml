@@ -27,14 +27,14 @@ jobs:
     - name: Run tests
       run: pytest
   
-    - name: Deploy to server
-      uses: easingthemes/ssh-deploy@v2.1.7
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-        REMOTE_HOST: 52.208.43.242 
-        REMOTE_USER: ubuntu
-        ARGS: "-rltgoDzvO --delete"
-
-    - name: Run cmd 
-      run: |
-        mkdir testin_ci
+    - name: Deploy to remote server
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.REMOTE_SERVER_HOST }}
+        username: ${{ secrets.REMOTE_SERVER_USERNAME }}
+        password: ${{ secrets.REMOTE_SERVER_PASSWORD }}
+        script: |
+          mkdir -p my_project
+          cd my_project
+          touch file.txt
+          echo 'all works' > file.txt
