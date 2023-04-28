@@ -36,4 +36,4 @@ jobs:
         server: "52.208.43.242"
         username: "ubuntu"
       run: |
-         mkdir done
+        mkdir testin_ci
