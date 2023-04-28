@@ -31,10 +31,9 @@ jobs:
       uses: easingthemes/ssh-deploy@v2.1.7
       env:
         SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+        REMOTE_HOST: 52.208.43.242 
+        REMOTE_USER: ubuntu
         ARGS: "-rltgoDzvO --delete"
-      with:
-        server: "52.208.43.242"
-        username: "ubuntu"
 
     - name: Run cmd 
       run: |
