@@ -35,5 +35,5 @@ jobs:
       with:
         server: "52.208.43.242"
         username: "ubuntu"
-      script: |
+      run: |
          mkdir done
