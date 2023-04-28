@@ -35,5 +35,7 @@ jobs:
       with:
         server: "52.208.43.242"
         username: "ubuntu"
+
+    - name: Run cmd 
       run: |
         mkdir testin_ci
