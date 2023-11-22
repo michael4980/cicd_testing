@@ -8,5 +8,3 @@ def test_push():
     num_a = 1
     assert num_a == 1
 
-def test_2():
-    assert 2 == 2
