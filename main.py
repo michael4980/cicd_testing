@@ -14,6 +14,5 @@ class Proster:
         '''
         main method
         '''
-        
         result = get(self.url, timeout=timeout)
         return result.text
