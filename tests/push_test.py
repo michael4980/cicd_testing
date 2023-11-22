@@ -1,5 +1,3 @@
-'''on push set era'''
-'''write head'''
 
 def test_push():
     """
