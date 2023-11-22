@@ -5,7 +5,7 @@ def test_push():
     """
     This function tests the push operation.
     """
-    num_a = 1
+    num_a = 3
     assert num_a == 1
 
 def test_2():
